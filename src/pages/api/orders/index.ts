@@ -39,7 +39,6 @@ const createOrder = async (req:NextApiRequest,res:NextApiResponse<Data>) => {
   try {
     await db.connect()
     const dbProducts = await Product.find({ _id: {$in: productsIds}})
-    await db.disconnect()
 
     const subTotal = orderItems.reduce((prev,current) =>{
 
